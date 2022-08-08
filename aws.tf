@@ -9,6 +9,7 @@ terraform {
   backend "http" {
   }
 }
+/*
 
 provider "aws" {
   access_key = "${var.aws_access_key}"
@@ -32,3 +33,4 @@ output "secret_key" {
 output "access_key" {
   value = aws_iam_access_key.AccK.id
 }
+*/
