@@ -6,7 +6,8 @@ terraform {
     }
   }
 
-  required_version = ">= 1.2"
+  backend "http" {
+  }
 }
 
 provider "aws" {
