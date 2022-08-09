@@ -12,9 +12,9 @@ terraform {
 
 
 provider "aws" {
-  access_key = "${var.AWS_ACCESS_KEY_ID}"
-  secret_key = "${var.AWS_SECRET_ACCESS_KEY}"
-  region     = "${var.REGION}"
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
+  region     = var.REGION
 }
 
 resource "aws_iam_user" "new_user" {
@@ -44,7 +44,7 @@ EOF
 }
 
 output "secret_key" {
-  value = aws_iam_access_key.AccK.secret
+  value     = aws_iam_access_key.AccK.secret
   sensitive = true
 }
 
