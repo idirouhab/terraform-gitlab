@@ -25,6 +25,24 @@ resource "aws_iam_access_key" "AccK" {
   user = aws_iam_user.new_user.name
 }
 
+resource "aws_iam_user_policy" "iam" {
+  name = "test"
+  user = aws_iam_user.new_user.name
+
+  policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+    {
+    "Effect": "Allow",
+    "Action": "s3:ListAllMyBuckets",
+    "Resource": "*"
+    }
+    ]
+}
+EOF
+}
+
 output "secret_key" {
   value = aws_iam_access_key.AccK.secret
   sensitive = true
