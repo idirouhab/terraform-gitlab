@@ -26,7 +26,7 @@ resource "aws_iam_access_key" "AccK" {
 }
 
 resource "aws_iam_user_policy" "iam" {
-  name = "test"
+  name = "list-s3"
   user = aws_iam_user.new_user.name
 
   policy = <<EOF
