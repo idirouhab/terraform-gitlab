@@ -32,9 +32,11 @@ deploy:
     name: $TF_STATE_NAME
 
 job:
-  script:
-    - echo "Run script with $DEPLOY_VARIABLE as an argument"
-    - echo "Run another script if $IS_A_FEATURE exists"
+  extends: .terraform:destroy
+  dependencies:
+    - build
+  environment:
+    name: $TF_STATE_NAME
 
 
 variables:
