@@ -32,7 +32,7 @@ deploy:
     name: $TF_STATE_NAME
 
 job:
-  extends: .terraform:destroy
+  extends: .terraform:deploy
   dependencies:
     - build
   environment:
