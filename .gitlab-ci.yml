@@ -12,6 +12,7 @@ stages:
   - test
   - build
   - deploy
+  - cleanup
 
 fmt:
   extends: .terraform:fmt
@@ -31,13 +32,12 @@ deploy:
   environment:
     name: $TF_STATE_NAME
 
-job:
-  extends: .terraform:deploy
+destroy:
+  extends: .terraform:destroy
   dependencies:
     - build
   environment:
     name: $TF_STATE_NAME
-
 
 variables:
   TF_STATE_NAME: default
