@@ -31,6 +31,11 @@ deploy:
   environment:
     name: $TF_STATE_NAME
 
+job:
+  script:
+    - echo "Run script with $DEPLOY_VARIABLE as an argument"
+    - echo "Run another script if $IS_A_FEATURE exists"
+
 destroy:
   extends: .terraform:destroy
   dependencies:
@@ -39,5 +44,5 @@ destroy:
     name: $TF_STATE_NAME
 
 variables:
-  TF_STATE_NAME: default # if not using GitLab's HTTP backend, remove this line and specify TF_HTTP_* variables
+  TF_STATE_NAME: default
   TF_CACHE_KEY: default
