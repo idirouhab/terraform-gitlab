@@ -26,18 +26,19 @@ resource "aws_iam_access_key" "AccK" {
 }
 
 resource "aws_iam_user_policy" "iam" {
-  name = "list-s3"
+  name = "ec2-permission"
   user = aws_iam_user.new_user.name
 
   policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
-    {
-    "Effect": "Allow",
-    "Action": "s3:ListAllMyBuckets",
-    "Resource": "*"
-    }
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "ec2:*",
+            "Resource": "*"
+        }
     ]
 }
 EOF
