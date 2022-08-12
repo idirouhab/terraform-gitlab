@@ -27,9 +27,6 @@ build:
 
 deploy:
   extends: .terraform:deploy
-  dependencies:
-    - build
-  when: always
   environment:
     name: $TF_STATE_NAME
 
